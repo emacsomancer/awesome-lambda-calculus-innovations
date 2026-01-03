@@ -260,7 +260,41 @@ Macros (in the Lisp sense) are still, as far as I know, unique to Lisp. This is 
   
 I mention this mostly as a joke, but it is quite true. If you define a language that has car, cdr, cons, quote, cond, atom, eq, and a notation for functions expressed as lists, then you can build all the rest of Lisp out of it. That is in fact the defining quality of Lisp: it was in order to make this so that McCarthy gave Lisp the shape it has.
 #+end_quote
+
+* Implementing Lambda Calculus in Lisp
+- [[https://web.archive.org/web/20240427065052/https://ics.uci.edu/~lopes/teaching/inf212W12/readings/lambda-calculus-handout2.pdf][The Lambda Calculus - notes by Don Blaheta]] 
+- [[https://web.archive.org/web/20170829004921/http://cs.fit.edu/~ryan/library/functional_programming/gjm.lambook88.pdf][An Introduction to Functional Programming Through Lambda Calculus (Greg Michaelson)]] - This book aims to provide a gentle introduction to functional programming. It is based on the premises that functional programming provides pedagogic insights into many aspects of computing and offers practical techniques for general problem solving.  The approach taken is to start with pure λ calculus, Alonzo Church’s elegent but simple formalism for computation, and add syntactic layers for function definitions, booleans, integers, recursion, types, characters, lists and strings to build a highish level functional notation. Along the way, a variety of topics are discussed including arithmetic, linear list and binary tree processing, and alternative evaluation strategies. Finally, functional programming in Standard ML and COMMON LISP, using techniques developed throughout the book, are explored.  The material is presented sequentially. Each chapter depends on previous chapters. Within chapters, substantial use is made of worked examples. Each chapter ends with exercises which are based directly on ideas and techniques from that chapter. Specimen answers are included at the end of the book.
+
+** Lambda Calculus Implemented in Common Lisp
+- [[https://woodrush.github.io/blog/lambdalisp.html][LambdaLisp - A Lisp Interpreter That Runs on Lambda Calculus | Woodrush’s Blog]]
+  - [[https://github.com/woodrush/lambdalisp][GitHub - woodrush/lambdalisp: A Lisp interpreter written in untyped lambda calculus]]
+- [[https://github.com/woodrush/lambdacraft][GitHub - woodrush/lambdacraft:  Common Lisp DSL for building untyped lambda calculus expressions]]
+- [[https://github.com/relinquish/Lambda-Calculus-Interpreter][GitHub - relinquish/Lambda-Calculus-Interpreter:  This is a lambda calculus interpreter written in LISP (Common Lisp). It uses an evaluation strategy that is neither call-by-value nor call-by-name but lies somewhere in between.]]
+- [[https://web.archive.org/web/20240228072317/https://gavlock.dev/blog/lambda-on-lisp/0-introduction][Exploring the lambda calculus using Common Lisp | gavlock]]
+
+** Lambda Calculus Implemented in Elisp
+- [[https://babbagefiles.xyz/lambda-calculus-and-lisp-01/][Lambda Calculus and Lisp, part 1 ❚ The Neo-Babbage Files]]
+- [[https://babbagefiles.xyz/lambda-calculus-and-lisp-02-recursion/][Lambda Calculus and Lisp, part 2 (recursion excursion) ❚ The Neo-Babbage Files]]
   
+** Lambda Calculus Implemented in Scheme
+- [[https://www.cs.unc.edu/~stotts/723/Lambda/scheme.html][An Introduction to Lambda Calculus and Scheme]]
+- [[https://github.com/Druid-of-Luhn/lambdacalc][GitHub - Druid-of-Luhn/lambdacalc: Basic extension of lambda calculus supporting assignments and consecutive expressions implemented in Scheme]]
+** Lambda Calclulus Implemented in Racket
+- [[https://github.com/junzew/LambdaCalculus][GitHub - junzew/LambdaCalculus: Racket code to demonstrate lambda calculus concepts]]
+- [[https://summer-school.racket-lang.org/2017/notes/mon-mor.html][1 From the Lambda Calculus to Redex]]
+- [[https://matt.might.net/articles/compiling-up-to-lambda-calculus/][Compiling up to the λ-calculus: Church encodings and the Y combinator]]
+** Lambda Calculus Implemented in Clojure
+- [[https://www.codurance.com/publications/2017/12/14/lambda-calculus-in-clojure][Lambda Calculus in Clojure (Part 1) | Codurance]] & [[https://www.codurance.com/publications/2018/01/25/lambda-calculus-in-clojure-part-2][Lambda Calculus in Clojure (Part 2) | Codurance]] - Sergio Rodrigo Royo [2018]
+- [[https://dev.to/hungle00/lambda-caculus-represent-in-clojure-35hp][Lambda Calculus - Represent in Clojure - DEV Community]]
+- [[https://github.com/srodrigo/lambda-calculus-in-clojure][GitHub - srodrigo/lambda-calculus-in-clojure]]: Lambda Calculus implementation in Clojure inspired in /Programming With Nothing/ by Tom Stuart.
+- [[https://medium.com/@dpurjon/i-tried-to-use-a-subset-of-clojure-as-%CE%BB-calculus-93c16b2af981][I tried to use a subset of Clojure as λ-calculus | by Demeter Purjon | Medium]]
+- [[https://github.com/viebel/lambda-calculus-interpreter-clj][GitHub - viebel/lambda-calculus-interpreter-clj: Lambda Calculus interpreter ...]]: lambda Calculus interpreter in clojure inspired by http://matt.might.net/articles/implementing-a-programming-language/
+- [[https://geeknote.net/lmhung/posts/2533][Lambda Calculus: Represent in Clojure and Elixir - steve lee - GeekNote]]
+- [[https://github.com/whitchapman/clojure-lambda-calculus][GitHub - whitchapman/clojure-lambda-calculus]] - This is a clojure version of Steven Syrek's very cool lambda calculus presentation written in JavaScript: https://github.com/sjsyrek/presentations/blob/master/lambda-calculus/lambda.js
+- [[https://github.com/bbuccianti/lambda][GitHub - bbuccianti/lambda: Lambda calculus reducer made with ClojureScript]]
+- [[https://stopa.io/post/263][Fun with Lambda Calculus]] - Stepan Parunashvili [October 2020]
+- [[https://blog.klipse.tech/lambda/2016/08/07/pure-y-combinator-clojure.html][Lambda Calculus: The Y combinator in clojure | Yehonathan Sharvit]]
+
 * System F
 - [[https://en.wikipedia.org/wiki/System_F][System F (Wikipedia_en)]]
 - [[https://www.site.uottawa.ca/~fbinard/Intuitionism/TypeTheory/SystemF/][System F Proof Types Girard - Franck Binard, University of Ottawa, PHD Candidate]]
