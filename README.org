@@ -189,6 +189,77 @@ All this said, the widespread belief about Lisp being the lambda calculus probab
   #+begin_quote
   John McCarthy said that he never had the intention to realize the lambda calculus, but he followed that statement with the corollary that had someone "started out with that intention, he might have ended with something like LISP." Peter Landin was a pioneer in that regard. See "The Mechanical Evaluation of Expressions", published in 1964, and the SECD virtual machine. Machine interpreters like SECD and CEK may come close to a "realization" of the lambda calculus. Their design is directly inspired by its semantics. You don't necessarily end up with something like LISP, but you can, see Lispkit and LispMe.
   #+end_quote
+*** Paul Graham on Lisp & Lambda Calculus - [[https://www.paulgraham.com/icad.html][Revenge of the Nerds]]
+....
+*Catching Up with Math*   
+  
+What I mean is that Lisp was first discovered by John McCarthy in 1958, and popular programming languages are only now catching up with the ideas he developed then.  
+  
+Now, how could that be true? Isn't computer technology something that changes very rapidly? I mean, in 1958, computers were refrigerator-sized behemoths with the processing power of a wristwatch. How could any technology that old even be relevant, let alone superior to the latest developments?  
+  
+I'll tell you how. It's because Lisp was not really designed to be a programming language, at least not in the sense we mean today. What we mean by a programming language is something we use to tell a computer what to do. McCarthy did eventually intend to develop a programming language in this sense, but the Lisp that we actually ended up with was based on something separate that he did as a [[https://www.paulgraham.com/rootsoflisp.html][ theoretical exercise]] -- an effort to define a more convenient alternative to the Turing Machine. As McCarthy said later,
+
+#+begin_quote
+Another way to show that Lisp was neater than Turing machines was to write a universal Lisp function and show that it is briefer and more comprehensible than the description of a universal Turing machine. This was the Lisp function [[https://sep.turbifycdn.com/ty/cdn/paulgraham/jmc.lisp?t=1765735365&][/eval/]]..., which computes the value of a Lisp expression.... Writing /eval/  required inventing a notation representing Lisp functions as Lisp data, and such a notation was devised for the purposes of the paper with no thought that it would be used to express Lisp programs in practice.
+#+end_quote
+
+What happened next was that, some time in late 1958, Steve Russell, one of McCarthy's grad students, looked at this definition of /eval/  and realized that if he translated it into machine language, the result would be a Lisp interpreter.  
+  
+This was a big surprise at the time. Here is what McCarthy said about it later in an interview:
+
+#+begin_quote
+Steve Russell said, look, why don't I program this /eval/..., and I said to him, ho, ho, you're confusing theory with practice, this /eval/ is intended for reading, not for computing. But he went ahead and did it. That is, he compiled the /eval/  in my paper into [IBM] 704 machine code, fixing bugs, and then advertised this as a Lisp interpreter, which it certainly was. So at that point Lisp had essentially the form that it has today....
+#+end_quote
+
+Suddenly, in a matter of weeks I think, McCarthy found his theoretical exercise transformed into an actual programming language-- and a more powerful one than he had intended.  
+  
+So the short explanation of why this 1950s language is not obsolete is that it was not technology but math, and math doesn't get stale. The right thing to compare Lisp to is not 1950s hardware, but, say, the Quicksort algorithm, which was discovered in 1960 and is still the fastest general-purpose sort.  
+  
+There is one other language still surviving from the 1950s, Fortran, and it represents the opposite approach to language design. Lisp was a piece of theory that unexpectedly got turned into a programming language. Fortran was developed intentionally as a programming language, but what we would now consider a very low-level one.  
+  
+[[https://www.paulgraham.com/history.html][Fortran I]], the language that was developed in 1956, was a very different animal from present-day Fortran. Fortran I was pretty much assembly language with math. In some ways it was less powerful than more recent assembly languages; there were no subroutines, for example, only branches. Present-day Fortran is now arguably closer to Lisp than to Fortran I.  
+  
+Lisp and Fortran were the trunks of two separate evolutionary trees, one rooted in math and one rooted in machine architecture. These two trees have been converging ever since. Lisp started out powerful, and over the next twenty years got fast. So-called mainstream languages started out fast, and over the next forty years gradually got more powerful, until now the most advanced of them are fairly close to Lisp. Close, but they are still missing a few things....  
+  
+*What Made Lisp Different*   
+When it was first developed, Lisp embodied nine new ideas. Some of these we now take for granted, others are only seen in more advanced languages, and two are still unique to Lisp. The nine ideas are, in order of their adoption by the mainstream,
+
+1. Conditionals. A conditional is an if-then-else construct. We take these for granted now, but Fortran I didn't have them. It had only a conditional goto closely based on the underlying machine instruction.  
+     
+2. A function type. In Lisp, functions are a data type just like integers or strings. They have a literal representation, can be stored in variables, can be passed as arguments, and so on.  
+     
+3. Recursion. Lisp was the first programming language to support it.  
+     
+4. Dynamic typing. In Lisp, all variables are effectively pointers. Values are what have types, not variables, and assigning or binding variables means copying pointers, not what they point to.  
+     
+5. Garbage-collection.  
+     
+6. Programs composed of expressions. Lisp programs are trees of expressions, each of which returns a value. This is in contrast to Fortran and most succeeding languages, which distinguish between expressions and statements.  
+    
+  It was natural to have this distinction in Fortran I because you could not nest statements. And so while you needed expressions for math to work, there was no point in making anything else return a value, because there could not be anything waiting for it.  
+    
+  This limitation went away with the arrival of block-structured languages, but by then it was too late. The distinction between expressions and statements was entrenched. It spread from Fortran into Algol and then to both their descendants.  
+    
+7. A symbol type. Symbols are effectively pointers to strings stored in a hash table. So you can test equality by comparing a pointer, instead of comparing each character.  
+     
+8. A notation for code using trees of symbols and constants.  
+     
+9. The whole language there all the time. There is no real distinction between read-time, compile-time, and runtime. You can compile or run code while reading, read or run code while compiling, and read or compile code at runtime.  
+    
+  Running code at read-time lets users reprogram Lisp's syntax; running code at compile-time is the basis of macros; compiling at runtime is the basis of Lisp's use as an extension language in programs like Emacs; and reading at runtime enables programs to communicate using s-expressions, an idea recently reinvented as XML.
+
+When Lisp first appeared, these ideas were far removed from ordinary programming practice, which was dictated largely by the hardware available in the late 1950s. Over time, the default language, embodied in a succession of popular languages, has gradually evolved toward Lisp. Ideas 1-5 are now widespread. Number 6 is starting to appear in the mainstream. Python has a form of 7, though there doesn't seem to be any syntax for it.  
+  
+As for number 8, this may be the most interesting of the lot. Ideas 8 and 9 only became part of Lisp by accident, because Steve Russell implemented something McCarthy had never intended to be implemented. And yet these ideas turn out to be responsible for both Lisp's strange appearance and its most distinctive features. Lisp looks strange not so much because it has a strange syntax as because it has no syntax; you express programs directly in the parse trees that get built behind the scenes when other languages are parsed, and these trees are made of lists, which are Lisp data structures.  
+  
+Expressing the language in its own data structures turns out to be a very powerful feature. Ideas 8 and 9 together mean that you can write programs that write programs. That may sound like a bizarre idea, but it's an everyday thing in Lisp. The most common way to do it is with something called a /macro./   
+  
+The term "macro" does not mean in Lisp what it means in other languages. A Lisp macro can be anything from an abbreviation to a compiler for a new language. If you want to really understand Lisp, or just expand your programming horizons, I would [[https://www.paulgraham.com/onlisp.html][learn more]] about macros.  
+  
+Macros (in the Lisp sense) are still, as far as I know, unique to Lisp. This is partly because in order to have macros you probably have to make your language look as strange as Lisp. It may also be because if you do add that final increment of power, you can no longer claim to have invented a new language, but only a new dialect of Lisp.  
+  
+I mention this mostly as a joke, but it is quite true. If you define a language that has car, cdr, cons, quote, cond, atom, eq, and a notation for functions expressed as lists, then you can build all the rest of Lisp out of it. That is in fact the defining quality of Lisp: it was in order to make this so that McCarthy gave Lisp the shape it has.
+#+end_quote
   
 * System F
 - [[https://en.wikipedia.org/wiki/System_F][System F (Wikipedia_en)]]
