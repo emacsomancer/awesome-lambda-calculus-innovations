@@ -1,0 +1,199 @@
+A rough beginning of links for awesome Lambda Calculus things.
+
+* Basic/Introduction
+- [[https://plato.stanford.edu/entries/lambda-calculus/][The Lambda Calculus (Stanford Encyclopedia of Philosophy)]]
+- [[https://en.wikipedia.org/wiki/Lambda_calculus][Lambda calculus (Wikipedia[en])]]
+
+* Encodings
+** De Bruijn indices
+*** Introductory
+- [[https://en.wikipedia.org/wiki/De_Bruijn_index][De Bruijn index (Wikipedia[en])]]
+- [[https://en.wikipedia.org/wiki/De_Bruijn_notation][De Bruijn notation (Wikipedia[en])]]
+*** Discussions
+- [[https://text.marvinborner.de/2023-08-22-22.html][de Bruijn Numerals - Marvin Borner]]
+- [[https://text.marvinborner.de/2025-10-08-12.html][Many Factorials in Bruijn - Marvin Borner]]
+** SKI combinators
+- [[https://en.wikipedia.org/wiki/SKI_combinator_calculus][SKI combinator calculus (Wikipedia[en])]]
+- [[https://crypto.stanford.edu/~blynn/lambda/kiselyov.html][Lambda calculus - Kiselyov Combinator Translation]]
+** Tromp's BLC
+- [[https://tromp.github.io/cl/Binary_lambda_calculus.html][Binary Lambda Calculus]]
+- [[https://www.willdonnelly.net/blog/2020-10-25-compact-church-data/][Compact Representation of Church-Encoded Data]]
+- [[https://text.marvinborner.de/2023-09-03-21.html][Metaprogramming and Self-Interpretation of Lambda Calculus]]
+** Mogensen-Scott encoding
+- [[https://en.wikipedia.org/wiki/Mogensen%E2%80%93Scott_encoding][Mogensen–Scott encoding (Wikipedia[en])]]
+- [[https://web.archive.org/web/20170922001048/http://repository.readscheme.org/ftp/papers/topps/D-456.pdf][An investigation of compact and efficient number representations in the pure lambda calculus - Torben Æ. Mogensen]]
+  - [[https://stackoverflow.com/questions/47999267/trouble-with-successor-predecessor-in-mogensens-binary-encoding][functional programming - Trouble with successor & predecessor in Mogensen's binary encoding [stackoverflow]​]]
+
+* Implementations
+- [[https://justine.lol/lambda/][Lambda Calculus in 383 Bytes [Justine Tunney]​]]
+- [[https://github.com/marvinborner/strong-reduction-tests][GitHub - marvinborner/strong-reduction-tests: A test suite for strong beta-reduction of the pure, untyped lambda calculus with ~3500 tests]]
+** [[https://rosettacode.org/wiki/Category:Bruijn][Bruijn: a functional programming language based on pure lambda calculus]] [Marvin Borner]
+- [[https://text.marvinborner.de/2024-03-25-02.html][Lambda Screen: Fractals in Pure Lambda Calculus (Marvin Borner)]]
+- [[https://bruijn.marvinborner.de/samples/fun_minibruijn.bruijn.html][bruijn std/fun/minibruijn.bruijn]] -  This parser/interpreter works by parsing the input to the meta encoding (similar to Mogensen-Scott) and reducing it using its self-interpreter! Substituting the definitions is done *while parsing* using hashmaps.
+- [[https://bruijn.marvinborner.de/samples/rosetta_variadic_fixed-point_combinator.bruijn.html][bruijn std/rosetta/variadic_fixed-point_combinator.bruijn]] - 
+
+* Lambda calculus and Lisp
+** Discussions of the relationship of lambda calculus to lisp
+*** John McCarthy on lambda calculus
+**** quotes from  [[https://dl.acm.org/doi/10.1145/800025.1198360][/History of LISP/ - John McCarthy, 01 June 1978]]
+#+begin_quote
+....
+(c) To use functions as arguments, one needs a notation for functions, and it seemed natural to the λ-notation of Church (1941). I didn't understand the rest of his book, so I wasn't tempted to try to implement his more general mechanism for defining functions. Church used higher order functionals instead of using conditional expressions. Conditional expressions are much more readily implemented on computers.
+[p.176]
+.....
+
+One mathematical consideration that influenced LISP was to express programs as applicative expressions built up from variables and constants using functions. I considered it important to make these expressions obey the usual mathematical laws allowing replacement of expressions by expressions giving the same value. The motive was to allow proofs of properties of programs using ordinary mathematical methods. This is only possible to the extent that side effects can be avoided. Unfortunately, side effects are often a great convenience when computational efficiency is important, and "functions" with side effects are present in LISP. However, the so-called pure LISP is free of side effects, and Cartwright (1976) and Cartwright and McCarthy (1978) show how to represent pure LISP programs by sentences and schemata in first-order logic and prove their properties. This is an additional vindication of the striving for mathematical neatness, because it is now easier to prove that pure LISP programs meet their specifications than it is for any other programming language in extensive use. (Fans of other programming languages are challenged to write a program to concatenate lists and prove that the operation is associative.)
+
+Another way to show that LISP was neater than Turing machines was to write a universal LISP function and show that is briefer and more comprehensible than the description of a universal Turing machine. This was the LISP function ~eval[e,a]~, which computers the value of a LISP expression ~e~, the second argument ~a~ being a list of assignments of values to variables. (~a~ is needed to make the recursion work.) Writing ~eval~ required inventing a notation representation LISP functions as LISP data, and such a notation was devised for the purposes of the paper with no thought that it would be used to express LISP programs in practice. Logical completeness required that the notation used to express functions used as functional arguments be extended to provide for recursive functions, and the ~LABEL~ notation was invented by [[https://en.wikipedia.org/wiki/Nathaniel_Rochester_(computer_scientist)][Nathaniel Rochester]] for that purpose. [[https://en.wikipedia.org/wiki/David_Park_(computer_scientist)][D.M.R. Park]] pointed out that ~LABEL~ was logically unnecessary since the result could be achieved using only ~LAMBDA~ — by a construction analogous to Church's /Y/-operator, albeit in a more complicated way.
+
+[[https://en.wikipedia.org/wiki/Steve_Russell_(computer_scientist)][S.R. Russell]] noticed that ~eval~ could serve as an interpreter for LISP, promptly hand coded it, and we now had a programming language with an interpreter.
+[p. 179]
+
+....
+#+end_quote
+
+*** quotes about the importance of lambda functions in Lisp, from [[https://dl.acm.org/doi/pdf/10.1145/800025.1198361][John McCarthy, Lisp session, /History of Programming Languages/, pp.189–90]]
+#+begin_quote
+...how do you talk about the sum of the derivatives, and in programming it, there were clearly two kinds of programs that could be written.
+
+One is where you have a sum of a fixed number of terms, like just two, where you regard a sum as a binary operation. And then you could write down the formula easy enough. But the other was where you have a sum of an indefinite number of terms, and you'd really like to make that work too. To make that work, what you want to be able to talk about is doing the same operation on all the elements of a lit. You want to be able to get a new list whose elements are obtained from the old list by just taking each element and doing a certain operation to it.
+
+In order to describe that, one has to have a notation for functions. So one could write this function called =mapcar=. This says, "Apply the function =f= to all the elements of the list." If the list is null then you're going to get a NIL here. Otherwise you are going to apply the function to the first element of the list and put that onto a front of a list which is obtained by doing the same operation again to the rest of the list. So that's =mapcar=. It wasn't called =mapcar= then. It was called =maplist=, but =maplist= is something different, which I will describe in just a moment.
+
+That was fine for that recursive definition of applying a function to everything on the list. No new ideas were required. But then, how do you write these functions?
+
+And so, the way in which to do that was to borrow from Church's Lambda Calculus, to borrow the lambda definition. Now, having borrowed this notation, one the myths concerning LISP that people think up or invent for themselves becomes apparent, and that is that LISP is somehow a realization of the lambda calculus, or that was the intention. The truth is that I didn't understand the lambda calculus, really. In particular, I didn't understand that you really could do conditional expressions in recursion in some sense in the pure lambda calculus. So, it wasn't an attempt to make the lambda calculus practical, although if someone had started out with that intention, he might have ended up with something like LISP.
+#+end_quote
+*** lispm - [https://old.reddit.com/r/lisp/comments/e467tk/is_it_more_correct_to_say_that_lisp_is_based_on/f99keh3/]
+#+begin_quote
+Lisp was intended to be implemented on a computer from day 0. For their [[id:710f5736-4f69-4c4e-87a5-ad10c2018325][IBM 704]]. Actually Lisp is based on earlier programming experience. From 56 onwards John McCarthy implemented Lisp ideas in Fortran & FLPL. Then 58 the implementation of Lisp was started. 59 a first runnable version was there. 1960 there was the Lisp 1 implementation. The widely known paper on the Lisp implementation and recursive function theory was published in 1960. But his original prime motivation was not to have a notation for recursive function theory, it was to have a list processing programming language for their IBM 704 for AI research.
+
+Lisp as designed by McCarthy was very different from lambda calculus.
+
+The early history of Lisp: http://campus.hesge.ch/daehne/2004-2005/Langages/Lisp.htm
+#+end_quote
+** Lisp ≠ Lambda Calculus
+*** [[https://danielsz.github.io/blog/2019-08-05T21_14.html]["Lisp is not based on the Lambda Calculus" - Daniel Szmulewicz]]
+**** Hacker News discussion of above: [[https://news.ycombinator.com/item?id=20696931]]
+- https://news.ycombinator.com/item?id=20698220
+  #+begin_quote
+  Modern lisps do realize the lambda calculus, but this was not immediate. In particular, in order to exactly match the lambda-calculus beta-reduction rule, you need to use lexical rather than dynamic scope, which did not really become popular until Scheme in the 1970s.
+  #+end_quote
+- [[https://news.ycombinator.com/item?id=20697414]]
+  #+begin_quote
+  The post quotes McCarthy:
+
+  "one of the myths concerning LISP that people think up or invent for themselves becomes apparent, and that is that LISP is somehow a realization of the lambda calculus, or that was the intention. The truth is that I didn't understand the lambda calculus, really" - John McCarthy
+
+  So there are a two issues here, 1) whether or not it was McCarthy's intention to realize the Lambda Calculus in LISP, and 2) whether or not LISP is such a realization. Or at least some kind of close realization.
+
+  The answer to 1 is clearly no. This doesn't imply an answer to 2 one way or another.
+
+  If 2 isn't true, what explains the widespread belief? Is it really just that he, McCarthy, borrowed some notation?
+  #+end_quote
+-  https://news.ycombinator.com/item?id=20706806
+  #+begin_quote
+    Interesting! So yeah, the LISP 1.5. interpreter already seems to do this.
+  
+  Googling a bit, it seems that McCarthy mentions this in "History of Lisp" [0], as a  change from LISP 1 to LISP 1.5:
+  
+  > In modern terminology, lexical scoping was wanted, and dynamic scoping was obtained. I must confess that I regarded this difficulty as just a bug and expressed confidence that Steve Russell would soon fix it. He did fix it but by inventing the so-called FUNARG device that took the lexical environment along with the functional argument. Similar difficulties later showed up in Algol 60, and Russell's turned out to be one of the more comprehensive solutions to the problem. While it worked well in the interpreter, comprehensiveness and speed seem to be opposed in compiled code, and this led to a succession of compromises. Unfortunately, time did not permit writing an appendix giving the history of the problem, and the interested reader is referred to (Moses 1970) as a place to start. (David Park tells me that Patrick Fischer also had a hand in developing the FUNARG device).
+  
+  So I guess closures had been invented at least by 1962 (when the LISP 1.5 manual was published), but were not widely used because of performance considerations?
+  
+  [0] http://www-formal.stanford.edu/jmc/history/lisp/node4.html
+  #+end_quote
+- https://news.ycombinator.com/item?id=20698246
+  #+begin_quote
+  If it was a realization of a lambda calculus, then it is one with (a) primitives, (b) strict evaluation, (c) quoted lambda terms, and (d) "dynamic" bindings.
+
+  (a) In classic lambda calculus, /everything/ is a lambda term. McCarthy's Lisp has primitives like lists and numbers. However, it is known that lambda calculus is powerful enough to encode these things as lambda terms (for example,
+#+end_quote
+#+begin_src lisp
+null = (lambda (n c) (n))
+(cons a b) = (lambda (n c) (c a b))
+#+end_src
+#+begin_comment
+i.e.,
+null = λnc.n
+cons = λabc.(c a b)
+#+end_comment
+#+begin_quote
+gives a way to encode lists. The car function would be something like
+#+end_quote
+#+begin_src lisp
+(car a) = (lambda (lst)
+            (lst (lambda () (error "car: not cons"))
+                 (lambda (a b) a)))
+#+end_src
+#+begin_quote
+This would not work in the original Lisp because of binding issues: the definition of cons requires the specific a and b bindings be remembered by the returned lambda.)
+
+(b) Lambda calculus does not have any evaluation rules. Rather, it is like algebra where you can try to normalize an expression if you wish, but the point is that some lambda terms are equivalent to others based on some simple rules that model abstract properties of function compositions. Lambda-calculus-based programming languages choose some evaluation rule, but there is no guarantee of convergence: there might be two programs that lambda calculus says are formally equivalent, but one might terminate while the other might not. Depending on how you're feeling, you might say that no PL for a computer can ever realize the lambda calculus, but more pragmatically we can say most languages use lambda calculus with a strict evaluation strategy.
+
+(c) The lambda terms in lambda calculus are not inspectable objects, but more just a sequence of symbols. Perhaps one of the innovations of McCarthy is that lambda terms can be represented using lists, and the evaluator can be written as a list processor (much better than Godel numbering!). In any case, the fact that terms have the ability to evaluate representations of terms within the context of the eval makes things a little different. It's also not too hard to construct a lambda evaluator in the lambda calculus[1], but you don't have the "level collapse" of Lisp.
+
+(d) In lambda calculus, one way to model function application is that you immediately substitute in arguments wherever that parameter is used in the function body. Shadowing is dealt with using a convention in PL known as lexical scoping, and an efficient implementation uses a linked list of environments. In the original Lisp, there was a stack of variable bindings instead, leading to something that is now known as dynamic scoping, which gives different results from the immediate substitution model. Pretty much everything fun you can do with the lambda calculus depends on having lexical scoping.
+
+All this said, the widespread belief about Lisp being the lambda calculus probably comes from Scheme, which /was/ intentionally lambda calculus with a strict evaluation model. Steele and Sussman were learning about actors for AI research, and I think it was Sussman (a former logician) who suggested that their planning language Schemer (truncated to Scheme) ought to have real lambdas. At some point, they realized actors and lambdas (with mutable environments) had the exact same implementation. This led to "Scheme: An Interpreter for Extended Lambda Calculus" (1975) and the "Lambda the ultimate /something/ " papers. Later, many of these ideas were backported to Lisp during the standardization of Common Lisp.
+
+[1] https://web.archive.org/web/20240316011033/https://math.berkeley.edu/~kmill/blog/blog_2018_5_31_universality_quines.html
+  #+end_quote
+- [[id:badc708b-7905-4b7a-9b6b-ce7affea17d5][Hermann Graßmann]] reference - Cybiote on Aug 14, 2019: https://news.ycombinator.com/item?id=20700119:
+  #+begin_quote
+    Adding a little to your wonderful post, another possibility for why the  conflation of the original lisp as based on the lambda calculus is that its notation was heavily inspired by the lambda calculus, even though it was more properly a refinement of the μ-recursive functions (of form f:(N,N,...N) -> N) over the natural numbers.
+    
+    While a lot of people are trying to defend the lambda calculus as a basis, I think this actually undersells the significance of LISP. Apart from Lisp the language family and its implementations, there is Lisp, (arguably) the first practically realizable mathematical model of computation. That is, it stands on its own as a model for computation†, continuing along a long line of which I think Grassmann's 1861 work on arithmetic and induction is a good starting point.
+    
+    Turing Machines are intuitive and the lambda calculus is subtle and expressive, but Lisp's contribution was to place partial recursive function on a more intuitive/realizable basis in terms of simple building blocks of partial functions, predicates, conditional expressions and symbolic expressions (ordered pairs/lists of atomic symbols). Lambdas come in as a notation for functions with a modification to facilitate recursive definitions.
+    
+    †Making Greenspun's Tenth Rule trivially true.
+  #+end_quote
+- Nils M Holm - https://news.ycombinator.com/item?id=20698569
+  #+begin_quote
+    Lambda Calculus (LC) versus LISP is not just about lexical scoping, but also about partial application (currying), which is cumbersome in LISP and natural in LC. In LC (where λ = lambda)
+  
+    (λxy.x)M  ==>  λy.M
+  
+  while in LISP
+  
+    ((lambda (x y) x) M)  ==>  undefined
+  
+  because the lambda function expects two arguments. Of course
+  
+  λxy.x is just an abbreviation for λx.λy.x, so the LISP counterpart would really be
+  
+    ((lambda (x) (lambda (y) x)) M)  ==>  (lambda (y) M)
+  
+  but this only proves the point that currying is natural in LC and not in LISP, because LC provides syntactic sugar that allows to treat higher-order functions and functions of multiple variables in the same way.
+  
+  Also, LC is not compatible with functions with a variable number of arguments, which is common in LISP. For instance,
+  
+    (+ 1)  ==>  1
+  
+  in most LISPs, but given PLUS = =λmnfx.mf(nfx)= and 1 = =λx.fx=
+  
+    PLUS 1  ==>  λnfx.f(nfx) == SUCC
+  
+  i.e., (PLUS 1) reduces to "SUCCessor", the function adding one to its argument.
+  
+  In most LISP dialects, you can pass any number of arguments to a variable-argument function like +. So what does the syntax (F X) denote in general? The application of a unary function to one argument or the partial application of a binary function? Or a ternary one...?
+  
+  In LC it does not matter, because multi-variable functions and higher-order functions are the same.
+  
+  I have developed a LISPy language that uses currying instead of functions of multiple arguments in the book Compiling Lambda Calculus (https://www.t3x.org/clc/index.html).
+  
+  You can download the code here: https://www.t3x.org/clc/lc1.html.
+  #+end_quote  
+- https://news.ycombinator.com/item?id=20705318
+  #+begin_quote
+  John McCarthy said that he never had the intention to realize the lambda calculus, but he followed that statement with the corollary that had someone "started out with that intention, he might have ended with something like LISP." Peter Landin was a pioneer in that regard. See "The Mechanical Evaluation of Expressions", published in 1964, and the SECD virtual machine. Machine interpreters like SECD and CEK may come close to a "realization" of the lambda calculus. Their design is directly inspired by its semantics. You don't necessarily end up with something like LISP, but you can, see Lispkit and LispMe.
+  #+end_quote
+  
+* System F
+- [[https://en.wikipedia.org/wiki/System_F][System F (Wikipedia[en])]]
+- [[https://www.site.uottawa.ca/~fbinard/Intuitionism/TypeTheory/SystemF/][System F Proof Types Girard - Franck Binard, University of Ottawa, PHD Candidate]]
+- [[https://web.archive.org/web/20140917015759/http://www.eecs.harvard.edu/~greg/cs256sp2005/lec16.txt][System Fω: the workhorse of modern compilers - Greg Morrisett]]
+
+* Lambda Calculus in Linguistics
+[WIP]
