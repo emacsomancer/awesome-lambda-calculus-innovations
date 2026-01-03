@@ -2,25 +2,25 @@ A rough beginning of links for awesome Lambda Calculus things.
 
 * Basic/Introduction
 - [[https://plato.stanford.edu/entries/lambda-calculus/][The Lambda Calculus (Stanford Encyclopedia of Philosophy)]]
-- [[https://en.wikipedia.org/wiki/Lambda_calculus][Lambda calculus (Wikipedia[en])]]
+- [[https://en.wikipedia.org/wiki/Lambda_calculus][Lambda calculus (Wikipedia_en)]]
 
 * Encodings
 ** De Bruijn indices
 *** Introductory
-- [[https://en.wikipedia.org/wiki/De_Bruijn_index][De Bruijn index (Wikipedia[en])]]
-- [[https://en.wikipedia.org/wiki/De_Bruijn_notation][De Bruijn notation (Wikipedia[en])]]
+- [[https://en.wikipedia.org/wiki/De_Bruijn_index][De Bruijn index (Wikipedia_en)]]
+- [[https://en.wikipedia.org/wiki/De_Bruijn_notation][De Bruijn notation (Wikipedia_en)]]
 *** Discussions
 - [[https://text.marvinborner.de/2023-08-22-22.html][de Bruijn Numerals - Marvin Borner]]
 - [[https://text.marvinborner.de/2025-10-08-12.html][Many Factorials in Bruijn - Marvin Borner]]
 ** SKI combinators
-- [[https://en.wikipedia.org/wiki/SKI_combinator_calculus][SKI combinator calculus (Wikipedia[en])]]
+- [[https://en.wikipedia.org/wiki/SKI_combinator_calculus][SKI combinator calculus (Wikipedia_en)]]
 - [[https://crypto.stanford.edu/~blynn/lambda/kiselyov.html][Lambda calculus - Kiselyov Combinator Translation]]
 ** Tromp's BLC
 - [[https://tromp.github.io/cl/Binary_lambda_calculus.html][Binary Lambda Calculus]]
 - [[https://www.willdonnelly.net/blog/2020-10-25-compact-church-data/][Compact Representation of Church-Encoded Data]]
 - [[https://text.marvinborner.de/2023-09-03-21.html][Metaprogramming and Self-Interpretation of Lambda Calculus]]
 ** Mogensen-Scott encoding
-- [[https://en.wikipedia.org/wiki/Mogensen%E2%80%93Scott_encoding][Mogensen–Scott encoding (Wikipedia[en])]]
+- [[https://en.wikipedia.org/wiki/Mogensen%E2%80%93Scott_encoding][Mogensen–Scott encoding (Wikipedia_en)]]
 - [[https://web.archive.org/web/20170922001048/http://repository.readscheme.org/ftp/papers/topps/D-456.pdf][An investigation of compact and efficient number representations in the pure lambda calculus - Torben Æ. Mogensen]]
   - [[https://stackoverflow.com/questions/47999267/trouble-with-successor-predecessor-in-mogensens-binary-encoding][functional programming - Trouble with successor & predecessor in Mogensen's binary encoding [stackoverflow]​]]
 
@@ -191,7 +191,7 @@ All this said, the widespread belief about Lisp being the lambda calculus probab
   #+end_quote
   
 * System F
-- [[https://en.wikipedia.org/wiki/System_F][System F (Wikipedia[en])]]
+- [[https://en.wikipedia.org/wiki/System_F][System F (Wikipedia_en)]]
 - [[https://www.site.uottawa.ca/~fbinard/Intuitionism/TypeTheory/SystemF/][System F Proof Types Girard - Franck Binard, University of Ottawa, PHD Candidate]]
 - [[https://web.archive.org/web/20140917015759/http://www.eecs.harvard.edu/~greg/cs256sp2005/lec16.txt][System Fω: the workhorse of modern compilers - Greg Morrisett]]
 
