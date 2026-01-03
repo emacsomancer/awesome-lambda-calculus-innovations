@@ -25,7 +25,7 @@ A rough beginning of links for awesome Lambda Calculus things.
   - [[https://stackoverflow.com/questions/47999267/trouble-with-successor-predecessor-in-mogensens-binary-encoding][functional programming - Trouble with successor & predecessor in Mogensen's binary encoding (stackoverflow)​]]
 
 * Implementations
-- [[https://justine.lol/lambda/][Lambda Calculus in 383 Bytes [Justine Tunney]​]]
+- [[https://justine.lol/lambda/][Lambda Calculus in 383 Bytes (Justine Tunney)​]]
 - [[https://github.com/marvinborner/strong-reduction-tests][GitHub - marvinborner/strong-reduction-tests: A test suite for strong beta-reduction of the pure, untyped lambda calculus with ~3500 tests]]
 ** [[https://rosettacode.org/wiki/Category:Bruijn][Bruijn: a functional programming language based on pure lambda calculus]] [Marvin Borner]
 - [[https://text.marvinborner.de/2024-03-25-02.html][Lambda Screen: Fractals in Pure Lambda Calculus (Marvin Borner)]]
@@ -64,7 +64,7 @@ That was fine for that recursive definition of applying a function to everything
 
 And so, the way in which to do that was to borrow from Church's Lambda Calculus, to borrow the lambda definition. Now, having borrowed this notation, one the myths concerning LISP that people think up or invent for themselves becomes apparent, and that is that LISP is somehow a realization of the lambda calculus, or that was the intention. The truth is that I didn't understand the lambda calculus, really. In particular, I didn't understand that you really could do conditional expressions in recursion in some sense in the pure lambda calculus. So, it wasn't an attempt to make the lambda calculus practical, although if someone had started out with that intention, he might have ended up with something like LISP.
 #+end_quote
-*** lispm - [https://old.reddit.com/r/lisp/comments/e467tk/is_it_more_correct_to_say_that_lisp_is_based_on/f99keh3/]
+*** [[http://lisp.de][lispm]] - https://old.reddit.com/r/lisp/comments/e467tk/is_it_more_correct_to_say_that_lisp_is_based_on/f99keh3/
 #+begin_quote
 Lisp was intended to be implemented on a computer from day 0. For their [[id:710f5736-4f69-4c4e-87a5-ad10c2018325][IBM 704]]. Actually Lisp is based on earlier programming experience. From 56 onwards John McCarthy implemented Lisp ideas in Fortran & FLPL. Then 58 the implementation of Lisp was started. 59 a first runnable version was there. 1960 there was the Lisp 1 implementation. The widely known paper on the Lisp implementation and recursive function theory was published in 1960. But his original prime motivation was not to have a notation for recursive function theory, it was to have a list processing programming language for their IBM 704 for AI research.
 
