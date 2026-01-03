@@ -267,4 +267,9 @@ I mention this mostly as a joke, but it is quite true. If you define a language 
 - [[https://web.archive.org/web/20140917015759/http://www.eecs.harvard.edu/~greg/cs256sp2005/lec16.txt][System Fω: the workhorse of modern compilers - Greg Morrisett]]
 
 * Lambda Calculus in Linguistics
-[WIP]
+** Richard Montague's Universal Grammar & Lambda Calculus
+- [[https://en.wikipedia.org/wiki/Montague_grammar][Montague grammar (Wikipedia_en)]]
+- [[https://people.umass.edu/partee/docs/MontagueGrammarElsevier.PDF][Partee, Barbara H. Montague grammar. To appear in Neil J. Smelser and
+Paul B. Baltes, eds. International Encyclopedia of the Social and Behavioral Sciences. Oxford: Pergamon/ Elsevier Science]] - overview of Montague Grammar, its development, and impact
+- [[https://newprairiepress.org/cgi/viewcontent.cgi?article=1056&context=biyclc][Formal Semantics: Origins, Issues, Early Impact [Baltic Yearbook of Cognition, Logic & Communication]- Barbara Partee 2011]] - impact of Richard Montague's use of lambda calculus in the formation of the study of formal semantics of natural language
+- [[https://pages.ucsd.edu/~ivano/Papers/2021_Caponigro_Montague-New-passion_2021-3-7]["The birth of a new passion: natural language 1966" - Ivano Caponigro's excerpt (March 2021) from a forthcoming biography of Montague]] - 
