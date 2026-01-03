@@ -22,7 +22,7 @@ A rough beginning of links for awesome Lambda Calculus things.
 ** Mogensen-Scott encoding
 - [[https://en.wikipedia.org/wiki/Mogensen%E2%80%93Scott_encoding][Mogensen–Scott encoding (Wikipedia_en)]]
 - [[https://web.archive.org/web/20170922001048/http://repository.readscheme.org/ftp/papers/topps/D-456.pdf][An investigation of compact and efficient number representations in the pure lambda calculus - Torben Æ. Mogensen]]
-  - [[https://stackoverflow.com/questions/47999267/trouble-with-successor-predecessor-in-mogensens-binary-encoding][functional programming - Trouble with successor & predecessor in Mogensen's binary encoding [stackoverflow]​]]
+  - [[https://stackoverflow.com/questions/47999267/trouble-with-successor-predecessor-in-mogensens-binary-encoding][functional programming - Trouble with successor & predecessor in Mogensen's binary encoding (stackoverflow)​]]
 
 * Implementations
 - [[https://justine.lol/lambda/][Lambda Calculus in 383 Bytes [Justine Tunney]​]]
